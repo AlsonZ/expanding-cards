@@ -14,6 +14,9 @@ body {
 }
 
 .card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border-radius: 50px;
   overflow: hidden;
   width: 100px;
@@ -24,4 +27,8 @@ body {
 
 .active {
   width: 800px;
+}
+
+.card img {
+  flex: none;
 }
