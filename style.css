@@ -13,3 +13,16 @@ body {
   max-width: 1000px;
   height: 100%;
 }
+
+.card {
+  border-radius: 100px;
+  overflow: hidden;
+  width: 100px;
+  height: 600px;
+  margin: 20px;
+  transition: width 1s ease-in-out;
+}
+
+.active {
+  width: 800px;
+}
