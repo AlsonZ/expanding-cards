@@ -7,8 +7,16 @@ const activateCard = (id) => {
   isActive = id;
 };
 
-for (let i = 0; i < card.length; i++) {
-  card[i].addEventListener("click", () => {
-    activateCard(i);
+const onCardClick = (id) => {
+  if (card[id].classList.contains("active")) {
+    card[isActive].classList.remove("active");
+  } else {
+    activateCard(id);
+  }
+};
+
+for (let id = 0; id < card.length; id++) {
+  card[id].addEventListener("click", () => {
+    onCardClick(id);
   });
 }
