@@ -1,6 +1,20 @@
 let card = document.getElementsByClassName("card");
 let isActive = 0;
 
+const setImage = (id) => {
+  card[id].children[0].src = window.localStorage.getItem("Image" + id);
+};
+
+const onFormSubmit = (e) => {
+  e.preventDefault();
+  let url = document.getElementById("url").value;
+  if (url != null && url.trim() != "") {
+    window.localStorage.setItem("Image" + isActive, url);
+    setImage(isActive);
+    document.getElementById("url").value = "";
+  }
+};
+
 const setDefaultImages = () => {
   let defaultImages = [
     "https://picsum.photos/id/1022/800/600",
@@ -36,5 +50,5 @@ for (let id = 0; id < card.length; id++) {
   card[id].addEventListener("click", () => {
     onCardClick(id);
   });
-  card[id].children[0].src = window.localStorage.getItem("Image" + id);
+  setImage(id);
 }
