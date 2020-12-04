@@ -15,6 +15,15 @@ const onFormSubmit = (e) => {
   }
 };
 
+const setImages = () => {
+  for (let id = 0; id < card.length; id++) {
+    card[id].addEventListener("click", () => {
+      onCardClick(id);
+    });
+    setImage(id);
+  }
+};
+
 const setDefaultImages = () => {
   let defaultImages = [
     "https://picsum.photos/id/1022/800/600",
@@ -23,10 +32,8 @@ const setDefaultImages = () => {
     "https://picsum.photos/id/1051/800/600",
     "https://picsum.photos/id/1004/800/600",
   ];
-  if (window.localStorage.getItem("Image" + 0) == null) {
-    for (let id = 0; id < defaultImages.length; id++) {
-      window.localStorage.setItem("Image" + id, defaultImages[id]);
-    }
+  for (let id = 0; id < defaultImages.length; id++) {
+    window.localStorage.setItem("Image" + id, defaultImages[id]);
   }
 };
 
@@ -44,11 +51,13 @@ const onCardClick = (id) => {
   }
 };
 
-setDefaultImages();
+const onResetDefault = () => {
+  setDefaultImages();
+  setImages();
+};
 
-for (let id = 0; id < card.length; id++) {
-  card[id].addEventListener("click", () => {
-    onCardClick(id);
-  });
-  setImage(id);
+if (window.localStorage.getItem("Image" + 0) == null) {
+  setDefaultImages();
 }
+
+setImages();
