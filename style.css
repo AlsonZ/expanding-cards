@@ -7,11 +7,19 @@ body {
 }
 .container {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
-  align-items: center;
+  /* align-items: center; */
   min-width: 1000px;
   height: 100%;
+}
+.input-container {
+  display: flex;
+  align-items: center;
+}
+.card-container {
+  display: flex;
+  flex-direction: row;
 }
 
 .card {
